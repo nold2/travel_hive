@@ -11,12 +11,14 @@ class Welcome extends StatelessWidget {
 
     final double aspectRatio = queryData.size.width / queryData.size.height;
 
-    Expanded customButton(String label, IconData icon, Color color, Color buttonColor){
+    Expanded customButton(String label, IconData icon, Color color, Color buttonColor, String route){
       return Expanded(
         child: Container(
           padding: EdgeInsets.all(8),
           child: RaisedButton(
-            onPressed: (){},
+            onPressed: (){
+              Navigator.pushNamed(context, route);
+            },
             color: buttonColor,
             shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
             child: Row(
@@ -53,8 +55,8 @@ class Welcome extends StatelessWidget {
               height: 120,
               child: Column(
                 children: <Widget>[
-                  customButton('Sign In', Icons.people, Colors.black, Colors.white),
-                  customButton('Sign Up', Icons.people, Colors.white, Colors.black),
+                  customButton('Sign In', Icons.people, Colors.black, Colors.white, '/register'),
+                  customButton('Sign Up', Icons.people, Colors.white, Colors.black, '/register'),
                 ],
               ),
             ),

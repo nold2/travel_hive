@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:travel_hive/welcome.dart';
+import 'package:travel_hive/screens/welcome.dart';
+import 'package:travel_hive/screens/register.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,9 +10,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue
+        primaryColor: Colors.white,
       ),
       home: Welcome(),
+      routes: <String, WidgetBuilder>{
+        '/register': (BuildContext context) => RegisterForm(),
+      },
     );
   }
 }
